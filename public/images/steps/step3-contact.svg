@@ -1,0 +1,61 @@
+
+    <svg width="640" height="400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#f0fdf4;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#dcfce7;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0000001a" />
+        </filter>
+      </defs>
+      
+      <!-- Background -->
+      <rect width="640" height="400" fill="url(#bgGrad)" rx="12" />
+      
+      <!-- Dashboard UI -->
+      <rect x="90" y="40" width="460" height="320" rx="8" fill="white" style="filter:url(#shadow)" />
+      
+      <!-- Dashboard Header -->
+      <rect x="90" y="40" width="460" height="50" rx="8" fill="#1e293b" />
+      <text x="120" y="70" font-family="Arial" font-size="16" font-weight="bold" fill="white">LeadMiner Dashboard - Quality Leads</text>
+      
+      <!-- Lead Cards -->
+      <rect x="110" y="110" width="200" height="110" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="125" y="135" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Sarah Johnson</text>
+      <text x="125" y="155" font-family="Arial" font-size="12" fill="#64748b">r/startups • Need help building MVP</text>
+      <rect x="125" y="165" width="80" height="20" rx="10" fill="#dcfce7" />
+      <text x="140" y="180" font-family="Arial" font-size="12" fill="#166534">87% Match</text>
+      <rect x="125" y="190" width="80" height="20" rx="4" fill="#3b82f6" />
+      <text x="140" y="205" font-family="Arial" font-size="12" fill="white">Contact</text>
+      
+      <rect x="330" y="110" width="200" height="110" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="345" y="135" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Michael Chen</text>
+      <text x="345" y="155" font-family="Arial" font-size="12" fill="#64748b">r/SaaS • Looking for developers</text>
+      <rect x="345" y="165" width="80" height="20" rx="10" fill="#dcfce7" />
+      <text x="360" y="180" font-family="Arial" font-size="12" fill="#166534">92% Match</text>
+      <rect x="345" y="190" width="80" height="20" rx="4" fill="#3b82f6" />
+      <text x="360" y="205" font-family="Arial" font-size="12" fill="white">Contact</text>
+      
+      <rect x="110" y="240" width="200" height="110" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="125" y="265" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">David Wilson</text>
+      <text x="125" y="285" font-family="Arial" font-size="12" fill="#64748b">r/webdev • Need website advice</text>
+      <rect x="125" y="295" width="80" height="20" rx="10" fill="#dcfce7" />
+      <text x="140" y="310" font-family="Arial" font-size="12" fill="#166534">79% Match</text>
+      <rect x="125" y="320" width="80" height="20" rx="4" fill="#3b82f6" />
+      <text x="140" y="335" font-family="Arial" font-size="12" fill="white">Contact</text>
+      
+      <rect x="330" y="240" width="200" height="110" rx="6" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="345" y="265" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Emma Martinez</text>
+      <text x="345" y="285" font-family="Arial" font-size="12" fill="#64748b">r/entrepreneur • First time founder</text>
+      <rect x="345" y="295" width="80" height="20" rx="10" fill="#dcfce7" />
+      <text x="360" y="310" font-family="Arial" font-size="12" fill="#166534">85% Match</text>
+      <rect x="345" y="320" width="80" height="20" rx="4" fill="#3b82f6" />
+      <text x="360" y="335" font-family="Arial" font-size="12" fill="white">Contact</text>
+      
+      <!-- Checkmark icons -->
+      <circle cx="40" cy="120" r="20" fill="#bbf7d0" />
+      <circle cx="600" cy="280" r="25" fill="#bbf7d0" />
+      <circle cx="570" cy="30" r="15" fill="#bbf7d0" />
+    </svg>
+    

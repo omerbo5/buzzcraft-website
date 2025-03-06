@@ -1,0 +1,51 @@
+
+    <svg width="640" height="400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#f5f3ff;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#ede9fe;stop-opacity:1" />
+        </linearGradient>
+        <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+          <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#0000001a" />
+        </filter>
+      </defs>
+      
+      <!-- Background -->
+      <rect width="640" height="400" fill="url(#bgGrad)" rx="12" />
+      
+      <!-- Reddit Posts UI -->
+      <rect x="90" y="50" width="460" height="300" rx="8" fill="white" style="filter:url(#shadow)" />
+      
+      <!-- Reddit Header -->
+      <rect x="90" y="50" width="460" height="40" rx="8" fill="#ff4500" />
+      <circle cx="110" cy="70" r="12" fill="white" />
+      <text x="140" y="75" font-family="Arial" font-size="16" font-weight="bold" fill="white">reddit</text>
+      
+      <!-- Posts with AI highlighting -->
+      <rect x="110" y="110" width="420" height="60" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+      <rect x="110" y="110" width="5" height="60" fill="#3b82f6" />
+      <text x="125" y="130" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Looking for developers to build my SaaS MVP</text>
+      <text x="125" y="150" font-family="Arial" font-size="12" fill="#64748b">Posted in r/startups • 3h ago • by u/founder2023</text>
+      <rect x="480" y="125" width="30" height="30" rx="15" fill="#c7d2fe" />
+      <text x="490" y="145" font-family="Arial" font-size="14" font-weight="bold" fill="#4f46e5">AI</text>
+      
+      <rect x="110" y="180" width="420" height="60" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+      <rect x="110" y="180" width="5" height="60" fill="#8b5cf6" />
+      <text x="125" y="200" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Need recommendations for website builders</text>
+      <text x="125" y="220" font-family="Arial" font-size="12" fill="#64748b">Posted in r/webdev • 5h ago • by u/startup_founder</text>
+      <rect x="480" y="195" width="30" height="30" rx="15" fill="#c7d2fe" />
+      <text x="490" y="215" font-family="Arial" font-size="14" font-weight="bold" fill="#4f46e5">AI</text>
+      
+      <rect x="110" y="250" width="420" height="60" rx="4" fill="#f8fafc" stroke="#e2e8f0" />
+      <rect x="110" y="250" width="5" height="60" fill="#ec4899" />
+      <text x="125" y="270" font-family="Arial" font-size="14" font-weight="bold" fill="#1e293b">Hiring a team to build our product - advice?</text>
+      <text x="125" y="290" font-family="Arial" font-size="12" fill="#64748b">Posted in r/SaaS • 2h ago • by u/tech_entrepreneur</text>
+      <rect x="480" y="265" width="30" height="30" rx="15" fill="#c7d2fe" />
+      <text x="490" y="285" font-family="Arial" font-size="14" font-weight="bold" fill="#4f46e5">AI</text>
+      
+      <!-- AI brain visualization -->
+      <circle cx="40" cy="120" r="20" fill="#e9d5ff" />
+      <circle cx="600" cy="280" r="25" fill="#e9d5ff" />
+      <circle cx="570" cy="30" r="15" fill="#e9d5ff" />
+    </svg>
+    

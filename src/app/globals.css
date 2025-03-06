@@ -1,24 +1,261 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --secondary: #10b981;
+  --accent: #8b5cf6;
   --background: #ffffff;
   --foreground: #171717;
+  --card: #ffffff;
+  --card-foreground: #171717;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --radius: 0.5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --primary: #3b82f6;
+  --primary-dark: #60a5fa;
+  --secondary: #10b981;
+  --accent: #8b5cf6;
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --border: #334155;
+  --input: #334155;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-heebo), sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-rubik), sans-serif;
+}
+
+/* RTL specific adjustments */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .wrapper {
+  direction: rtl;
+}
+
+[dir="rtl"] .btn,
+[dir="rtl"] .badge {
+  direction: rtl;
+}
+
+[dir="rtl"] .message-bubble-user {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .message-bubble-assistant {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+/* Flip icons in RTL */
+[dir="rtl"] svg:not(.no-flip) {
+  transform: scaleX(-1);
+}
+
+.theme-transition * {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.15s;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.loading-spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, var(--primary));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 4px), #000 0);
+  animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+     transform: rotate(1turn);
+  }
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+/* Button Styles */
+.btn {
+  @apply inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+  @apply btn bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.btn-small-primary {
+  @apply btn px-3 py-1.5 text-xs bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.btn-secondary {
+  @apply btn bg-white text-gray-700 border-gray-300 hover:bg-gray-50 focus:ring-blue-500;
+}
+
+.btn-ghost {
+  @apply btn bg-transparent text-gray-700 hover:bg-gray-50 border-0 shadow-none;
+}
+
+.btn-success {
+  @apply btn bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+}
+
+.btn-danger {
+  @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
+
+.btn-outline {
+  @apply btn bg-transparent border border-gray-300 text-gray-700 hover:bg-gray-50 dark:border-gray-600 dark:text-gray-300 dark:hover:bg-gray-800;
+}
+
+/* Form Styles */
+.form-input,
+.form-select,
+.form-textarea {
+  @apply block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
+}
+
+.form-checkbox {
+  @apply rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-500 focus:ring-blue-500;
+}
+
+.form-radio {
+  @apply border-gray-300 text-blue-600 shadow-sm focus:border-blue-500 focus:ring-blue-500;
+}
+
+/* Card Styles */
+.card {
+  @apply bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden;
+}
+
+.card-header {
+  @apply px-4 py-5 sm:px-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.card-body {
+  @apply px-4 py-5 sm:p-6;
+}
+
+.card-footer {
+  @apply px-4 py-4 sm:px-6 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Badge Styles */
+.badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.badge-blue {
+  @apply badge bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300;
+}
+
+.badge-green {
+  @apply badge bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300;
+}
+
+.badge-red {
+  @apply badge bg-red-100 dark:bg-red-900/40 text-red-800 dark:text-red-300;
+}
+
+.badge-yellow {
+  @apply badge bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-300;
+}
+
+.badge-gray {
+  @apply badge bg-gray-100 dark:bg-gray-900/40 text-gray-800 dark:text-gray-300;
+}
+
+/* Chat message bubbles with RTL support */
+.message-bubble {
+  @apply rounded-lg p-3 max-w-[85%];
+}
+
+.message-bubble-user {
+  @apply message-bubble bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300;
+}
+
+.message-bubble-assistant {
+  @apply message-bubble bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200;
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600;
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-primary-sm {
+    @apply px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-secondary {
+    @apply px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-900 dark:text-white font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-outline {
+    @apply px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-ghost {
+    @apply px-2 py-1 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 font-medium rounded-md transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-success {
+    @apply px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+  
+  .btn-danger {
+    @apply px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 inline-flex items-center justify-center;
+  }
+}
+
+.card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden
+  dark:bg-slate-800 dark:border dark:border-slate-700;
+}
+
+.section-light {
+  @apply bg-white dark:bg-slate-900 py-16 md:py-24;
+}
+
+.section-dark {
+  @apply bg-slate-50 dark:bg-slate-800/50 py-16 md:py-24;
+}
+
+.section-colored {
+  @apply bg-blue-50 dark:bg-slate-800/80 py-16 md:py-24;
 }
