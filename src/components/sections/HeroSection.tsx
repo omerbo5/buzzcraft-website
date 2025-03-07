@@ -25,7 +25,7 @@ const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-emerald-600 font-semibold text-lg mb-2"
             >
-              ייצור לידים איכותיים ואותנטיים מפייסבוק
+              ייצור לידים איכותיים ואורגניים מפייסבוק בצורה אוטנטית
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
             >
-              מצא <span className="gradient-text">לידים אורגניים</span> מפייסבוק עם <span className="gradient-text">BuzzCraft</span>
+              מערכת <span className="gradient-text">חכמה להפקת לידים</span> מפייסבוק עם <span className="gradient-text">BuzzCraft</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg"
             >
-              BuzzCraft מייצרת לידים איכותיים מפייסבוק באופן אוטומטי, אותנטי ורציף - בעלות נמוכה משמעותית מפרסום ממומן. הטכנולוגיה שלנו יוצרת פוסטים אותנטיים ומפיצה אותם בקבוצות פייסבוק רלוונטיות, בדיוק כמו שאדם אמיתי היה עושה.
+              BuzzCraft מפיקה לידים איכותיים מפייסבוק באופן אוטומטי לגמרי, תוך שמירה על מגע אנושי אותנטי - בעלות נמוכה משמעותית מפרסום ממומן. הטכנולוגיה המתקדמת שלנו יוצרת פוסטים שנראים ונקראים כמו תוכן אנושי אמיתי, ומפיצה אותם בקבוצות פייסבוק רלוונטיות לתחום העסק שלך.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const HeroSection = () => {
                 className="px-6 py-3 rounded-md border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-900 dark:text-white font-medium text-center flex items-center justify-center gap-2"
               >
                 <FiPlay className="h-4 w-4" />
-                צפה באיך זה עובד
+                צפה בהדגמה מעשית
               </button>
             </motion.div>
             
@@ -75,7 +75,7 @@ const HeroSection = () => {
                 ))}
               </div>
               <div className="mr-4 text-sm text-gray-600 dark:text-gray-400">
-                <span className="font-bold text-gray-900 dark:text-white">+500</span> עסקים בישראל כבר סומכים על BuzzCraft
+                <span className="font-bold text-gray-900 dark:text-white">למעלה מ-500</span> עסקים בישראל כבר מייצרים לידים איכותיים עם BuzzCraft
               </div>
             </motion.div>
           </motion.div>
@@ -88,40 +88,30 @@ const HeroSection = () => {
           >
             <div className="relative rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-100/50 to-blue-100/50 dark:from-emerald-900/20 dark:to-blue-900/20"></div>
-              <div className="grid grid-cols-2 h-full">
-                <div className="relative border-l border-gray-200 dark:border-gray-700">
-                  <Image
-                    src="/images/facebook-posts-preview.png"
-                    alt="פוסטים אותנטיים בפייסבוק"
-                    width={600}
-                    height={800}
-                    className="relative object-cover h-full"
-                  />
-                </div>
-                <div className="relative">
-                  <Image
-                    src="/images/dashboard-preview.png"
-                    alt="לוח בקרת לידים של BuzzCraft"
-                    width={600}
-                    height={800}
-                    className="relative object-cover h-full"
-                  />
-                </div>
-              </div>
               
-              <div className="absolute top-2 right-2 left-2 flex items-center gap-1.5 px-3 py-1.5 bg-gray-800/90 backdrop-blur-sm rounded-lg">
+              <div className="absolute top-2 right-2 left-2 flex items-center gap-1.5 px-3 py-1.5 bg-gray-800/90 backdrop-blur-sm rounded-lg z-20">
                 <div className="flex gap-1.5">
                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 </div>
-                <div className="text-xs text-white/90 font-medium mr-2">BuzzCraft - מחולל לידים מפייסבוק</div>
+                <div className="text-xs text-white/90 font-medium mr-2">BuzzCraft - הדור הבא של איסוף לידים מפייסבוק</div>
               </div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-emerald-600 text-white p-4 rounded-lg shadow-lg">
-              <div className="text-2xl md:text-3xl font-bold">30,000+</div>
-              <div className="text-sm opacity-90">לידים מיוצרים מדי חודש</div>
+
+              <div className="relative h-full">
+                <div className="absolute -bottom-4 -left-4 bg-emerald-600 text-white p-4 rounded-lg shadow-lg z-20">
+                  <div className="text-3xl md:text-4xl font-bold">30,000+</div>
+                  <div className="text-sm opacity-90">לידים איכותיים חודשיים</div>
+                </div>
+                <Image
+                  src="/images/dashboard-analytics.png"
+                  alt="מערכת ניהול הלידים של BuzzCraft"
+                  width={1600}
+                  height={900}
+                  priority
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </motion.div>
         </div>
@@ -136,7 +126,7 @@ const HeroSection = () => {
         <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onClick={() => setShowVideo(false)}>
           <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden max-w-4xl w-full max-h-[80vh] shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-800">
-              <h3 className="font-semibold">איך BuzzCraft עובד</h3>
+              <h3 className="font-semibold">איך BuzzCraft פועלת בפרקטיקה</h3>
               <button 
                 onClick={() => setShowVideo(false)}
                 className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800"

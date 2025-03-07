@@ -1,162 +1,149 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FiUsers, FiCpu, FiDatabase, FiMessageCircle, FiTrendingUp } from 'react-icons/fi';
+import { FiUsers, FiCpu, FiDatabase, FiMessageCircle, FiTrendingUp, FiArrowLeft, FiPlayCircle } from 'react-icons/fi';
+import { useScroll, useTransform } from 'framer-motion';
 
 const features = [
   {
-    icon: <FiUsers className="w-6 h-6" />,
+    icon: <FiUsers className="w-8 h-8" />,
     title: 'יצירת לידים אורגניים מפייסבוק',
-    description: 'המערכת שלנו מייצרת תוכן אותנטי ומפיצה אותו באלפי קבוצות פייסבוק רלוונטיות, מושכת בדיוק את הלקוחות שמחפשים את השירותים שלך.',
-    color: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/50 dark:text-emerald-400'
+    description: 'הטכנולוגיה שלנו יוצרת תוכן טבעי ואותנטי ומפיצה אותו באלפי קבוצות פייסבוק ממוקדות, שם נמצאים בדיוק הלקוחות הפוטנציאליים המחפשים את השירותים והמוצרים שלך.',
+    color: 'from-emerald-500 via-teal-400 to-green-500'
   },
   {
-    icon: <FiCpu className="w-6 h-6" />,
-    title: 'הנעה אוטומטית חכמה',
-    description: 'הבינה המלאכותית שלנו יוצרת וממטבת באופן רציף תוכן אותנטי שמתאים לקבוצות היעד, עוקבת אחר הביצועים ומשפרת אסטרטגיות לתוצאות מיטביות.',
-    color: 'bg-teal-100 text-teal-600 dark:bg-teal-900/50 dark:text-teal-400'
+    icon: <FiCpu className="w-8 h-8" />,
+    title: 'מנוע AI מתקדם להפצה חכמה',
+    description: 'המערכת מזהה את הקבוצות הרלוונטיות ביותר לעסק שלך, מייצרת תוכן מותאם אישית לכל קבוצה, ומתזמנת פרסומים באופן אופטימלי להשגת מקסימום תגובות ולידים פוטנציאליים.',
+    color: 'from-teal-500 to-cyan-500'
   },
   {
-    icon: <FiDatabase className="w-6 h-6" />,
-    title: 'מערכת CRM מובנית',
-    description: 'ארגן, תייג ונהל את הלידים האורגניים שלך עם מערכת ה-CRM המובנית שלנו, שתוכננה במיוחד עבור טיפוח לידים מפייסבוק.',
-    color: 'bg-green-100 text-green-600 dark:bg-green-900/50 dark:text-green-400'
+    icon: <FiDatabase className="w-8 h-8" />,
+    title: 'מערכת CRM ייעודית ללידים מפייסבוק',
+    description: 'נהל ביעילות את כל הלידים האורגניים שלך במערכת ה-CRM המותאמת במיוחד לתהליך טיפוח לידים מפייסבוק, עם תיוג אוטומטי, ניהול מעקב, והתראות על לידים חמים.',
+    color: 'from-green-500 to-lime-500'
   },
   {
-    icon: <FiMessageCircle className="w-6 h-6" />,
-    title: 'בוט שיחות אוטומטי',
-    description: 'בוט המסנג׳ר החכם שלנו מטפל בשיחות הראשוניות, אוסף פרטים חיוניים, ומזין אותם ישירות למערכת ה-CRM לטיפוח מיידי.',
-    color: 'bg-lime-100 text-lime-600 dark:bg-lime-900/50 dark:text-lime-400'
+    icon: <FiMessageCircle className="w-8 h-8" />,
+    title: 'בוט שיחות AI לסינון ראשוני',
+    description: 'בוט המסנג׳ר החכם שלנו מזהה לידים איכותיים, מקיים שיחות ראשוניות טבעיות, אוסף פרטים חיוניים, ומתעדף לידים לטיפול מיידי במערכת ה-CRM.',
+    color: 'from-lime-500 to-emerald-500'
   },
   {
-    icon: <FiTrendingUp className="w-6 h-6" />,
-    title: 'אנליטיקות וביצועים',
-    description: 'עקוב אחר ההצלחה שלך עם נתונים מפורטים על איכות הלידים, שיעורי מעורבות, ומדדי המרה בזמן אמת.',
-    color: 'bg-amber-100 text-amber-600 dark:bg-amber-900/50 dark:text-amber-400'
+    icon: <FiTrendingUp className="w-8 h-8" />,
+    title: 'אנליטיקה מבוססת תוצאות',
+    description: 'קבל תובנות מעמיקות בזמן אמת על איכות הלידים, שיעורי המעורבות, יחסי המרה, ועלות לליד - עם יכולת להשוות לתוצאות מקמפיינים ממומנים.',
+    color: 'from-amber-500 to-orange-500'
   }
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-20 bg-white dark:bg-slate-900" dir="rtl">
-      <div className="container mx-auto px-4 md:px-6">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              תכונות חזקות של <span className="gradient-text">BuzzCraft</span> לייצור לידים אורגניים מפייסבוק
-            </h2>
-            <p className="text-lg text-slate-600 dark:text-slate-400">
-              הפלטפורמה שלנו משלבת בינה מלאכותית מתקדמת עם כלים חכמים כדי ליצור ולטפח לידים איכותיים באופן אורגני מקבוצות פייסבוק.
-            </p>
-          </motion.div>
-        </div>
+    <section className="relative overflow-hidden py-32 bg-gradient-to-b from-slate-900 to-blue-900 dark:from-slate-950 dark:to-slate-900" dir="rtl">
+      <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+        
+        {/* Hero Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent mb-6">
+            <span className="font-heebo block">
+              ניהול לידים <span className="text-slate-200">בעולם אמיתי</span>
+            </span>
+            <span className="text-3xl md:text-4xl text-slate-200 font-medium mt-4 block">
+              מערכת שיוצרת <span className="text-slate-200">שיחות אמיתיות וערך</span> בשוק דיגיטלי רווי בפרסומות
+            </span>
+          </h2>
+        </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* Interactive Value Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {[
+            { title: 'לידים אורגניים', value: '5,200+', desc: 'לידים איכותיים מדי חודש' },
+            { title: 'שיעור המרה', value: '92%', desc: 'מלידים לשיחות אמיתיות' },
+            { title: 'חיסכון בזמן', value: '40+ שעות', desc: 'של עבודה ידנית בחודש' },
+            { title: 'שביעות רצון', value: '4.9/5', desc: 'על פי 327 לקוחות' }
+          ].map((stat, i) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="card hover:translate-y-[-5px] text-right"
+              key={i}
+              className="bg-white/5 p-6 rounded-2xl backdrop-blur-sm border border-slate-700/30 hover:border-emerald-400/30 transition-colors"
+              whileHover={{ y: -5 }}
             >
-              <div className={`w-12 h-12 rounded-lg ${feature.color} flex items-center justify-center mb-4`}>
-                {feature.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-3 text-slate-900 dark:text-white">{feature.title}</h3>
-              <p className="text-slate-600 dark:text-slate-400">{feature.description}</p>
+              <div className="text-emerald-400 text-4xl font-bold mb-2">{stat.value}</div>
+              <div className="text-xl text-slate-200 font-medium mb-1">{stat.title}</div>
+              <div className="text-slate-400">{stat.desc}</div>
             </motion.div>
           ))}
         </div>
 
-        {/* Additional Feature Highlight */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-16 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-8 md:p-12 shadow-sm border border-emerald-100 dark:border-slate-600"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div className="text-right">
-              <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">
-                לידים אורגניים איכותיים יותר
-              </h3>
-              <p className="text-slate-600 dark:text-slate-300 mb-6">
-                הטכנולוגיה שלנו מייצרת פוסטים שנראים טבעיים לחלוטין ומפיצה אותם באלפי קבוצות פייסבוק רלוונטיות. 
-                בניגוד לפרסום ממומן, הגישה האורגנית שלנו מייצרת שיחות אותנטיות, 
-                משפרת את אמון הלקוחות, ומניבה לידים איכותיים יותר בעלות נמוכה יותר.
-              </p>
-              <ul className="space-y-3">
-                {[
-                  'יצירת פוסטים אותנטיים המותאמים לכל קבוצה',
-                  'כיסוי אוטומטי של אלפי קבוצות רלוונטיות',
-                  'מערכת חכמה לניהול שיחות ראשוניות',
-                  'עלות נמוכה יותר לליד בהשוואה לפרסום ממומן'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start justify-end">
-                    <span className="text-slate-700 dark:text-slate-300">{item}</span>
-                    <span className="flex-shrink-0 h-6 w-6 rounded-full bg-emerald-500 flex items-center justify-center text-white mr-3 order-first">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                      </svg>
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="relative h-64 md:h-80 lg:h-full min-h-[300px] rounded-lg overflow-hidden shadow-md">
-              <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-green-500/20 dark:from-emerald-500/40 dark:to-green-500/40" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-lg shadow-lg max-w-sm">
-                  <div className="flex items-center gap-3 mb-4">
-                    <h4 className="font-semibold text-slate-900 dark:text-white">השוואת ביצועים</h4>
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 flex items-center justify-center text-white">
-                      <FiTrendingUp className="w-5 h-5" />
-                    </div>
+        {/* Feature Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-12">
+            {features.slice(0,2).map((feature, i) => (
+              <motion.div
+                key={i}
+                className="group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`p-4 rounded-xl bg-gradient-to-br ${feature.color}`}>
+                    {feature.icon}
                   </div>
-                  <div className="space-y-3">
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">94%</span>
-                        <span className="text-sm text-slate-600 dark:text-slate-400">שיעור פתיחת הודעות</span>
-                      </div>
-                      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                        <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '94%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">87%</span>
-                        <span className="text-sm text-slate-600 dark:text-slate-400">שיעור מעורבות</span>
-                      </div>
-                      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                        <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '87%' }}></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-sm font-medium text-emerald-600 dark:text-emerald-400">76%</span>
-                        <span className="text-sm text-slate-600 dark:text-slate-400">יחס עלות-תועלת</span>
-                      </div>
-                      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2">
-                        <div className="bg-emerald-500 h-2 rounded-full" style={{ width: '76%' }}></div>
-                      </div>
-                    </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      {feature.description}
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        </motion.div>
+          
+          <div className="space-y-12">
+            {features.slice(2).map((feature, i) => (
+              <motion.div
+                key={i}
+                className="group bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`p-4 rounded-xl bg-gradient-to-br ${feature.color}`}>
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">
+                      {feature.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="mt-20 text-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            className="bg-emerald-500 text-white px-12 py-6 rounded-2xl text-xl font-bold shadow-lg hover:shadow-2xl transition-all"
+          >
+            התחל להפיק לידים - ללא התחייבות
+          </motion.button>
+        </div>
+      </div>
+
+      {/* Background Effects */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
       </div>
     </section>
   );

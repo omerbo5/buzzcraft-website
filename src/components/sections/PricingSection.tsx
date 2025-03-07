@@ -8,16 +8,16 @@ const pricingPlans = [
   {
     name: 'בסיסי',
     price: 1990,
-    description: 'לעסקים קטנים שמחפשים פתרון יעיל לייצור לידים אורגניים',
+    description: 'פתרון אידיאלי לעסקים קטנים המעוניינים בייצור לידים אורגניים איכותיים במאמץ מינימלי',
     features: [
       'עד 300 פוסטים אותנטיים בחודש',
-      'הפצה ל-50 קבוצות רלוונטיות',
-      'איסוף לידים בסיסי דרך מסנג\'ר',
-      'לוח בקרה CRM פשוט',
-      'תמיכה באימייל',
-      'ללא חוזים - ביטול בכל עת',
-      '14 יום אחריות להחזר כספי',
-      'דוחות ביצועים שבועיים'
+      'הפצה בעד 50 קבוצות פייסבוק ממוקדות',
+      'איסוף לידים חכם עם בוט מסנג\'ר',
+      'לוח בקרה CRM לניהול לידים',
+      'תמיכה טכנית במייל תוך יום עסקים',
+      'גמישות מלאה - ביטול בכל עת',
+      '14 יום אחריות להחזר כספי מלא',
+      'דוחות ביצועים שבועיים מפורטים'
     ],
     highlighted: false,
     buttonText: 'התחל ניסיון חינם',
@@ -26,36 +26,36 @@ const pricingPlans = [
   {
     name: 'מקצועי',
     price: 3990,
-    description: 'אידיאלי לעסקים צומחים המחפשים יותר לידים ויכולות מתקדמות',
+    description: 'לעסקים צומחים המחפשים כמות גדולה יותר של לידים ויכולות מתקדמות לניהול והמרה',
     features: [
       'עד 600 פוסטים אותנטיים בחודש',
-      'הפצה ל-200 קבוצות רלוונטיות',
-      'איסוף לידים מתקדם עם סינון איכות',
-      'CRM מלא עם אנליטיקה',
-      'תמיכת צ\'אט ואימייל בעדיפות גבוהה',
-      'ללא חוזים - ביטול בכל עת',
-      '14 יום אחריות להחזר כספי',
-      'דוחות ביצועים שבועיים',
-      'אופטימיזציית אסטרטגיה קבועה'
+      'הפצה בעד 200 קבוצות פייסבוק ממוקדות',
+      'איסוף לידים מתקדם עם סינון איכות אוטומטי',
+      'CRM מלא עם תיוג אוטומטי והתראות',
+      'תמיכה מהירה בצ\'אט ובמייל תוך שעות',
+      'גמישות מלאה - ביטול בכל עת',
+      '14 יום אחריות להחזר כספי מלא',
+      'דוחות ביצועים מפורטים בזמן אמת',
+      'אופטימיזציית אסטרטגיה שבועית מבוססת נתונים'
     ],
     highlighted: true,
     buttonText: 'התחל ניסיון חינם',
     buttonLink: '/signup?plan=professional'
   },
   {
-    name: 'ארגוני',
+    name: 'עסקי פרימיום',
     price: 7990,
-    description: 'לעסקים מבוססים עם דרישות לידים בנפח גבוה ושירות פרימיום',
+    description: 'לחברות ועסקים מבוססים הזקוקים לכמות גדולה של לידים איכותיים ושירות מקיף ברמה עסקית',
     features: [
       'פוסטים אותנטיים ללא הגבלה',
-      'הפצה לקבוצות רלוונטיות ללא הגבלה',
-      'איסוף וטיפוח לידים פרימיום',
-      'CRM מתקדם עם יכולות אינטגרציה',
-      'מנהל חשבון ייעודי',
-      'דיווחים מותאמים אישית',
-      'ללא חוזים - ביטול בכל עת',
-      '14 יום אחריות להחזר כספי',
-      'אופטימיזציית אסטרטגיה שבועית'
+      'הפצה בקבוצות פייסבוק רלוונטיות ללא הגבלה',
+      'מערכת AI מתקדמת לזיהוי וטיפוח לידים מובילים',
+      'CRM מתקדם עם אינטגרציה למערכות קיימות',
+      'מנהל לקוח ייעודי וליווי אסטרטגי',
+      'דיווחים מותאמים אישית לצרכי העסק',
+      'גמישות מלאה - ביטול בכל עת',
+      '14 יום אחריות להחזר כספי מלא',
+      'אופטימיזציית אסטרטגיה שבועית מבוססת תוצאות'
     ],
     highlighted: false,
     buttonText: 'צור קשר עם המכירות',
@@ -65,21 +65,22 @@ const pricingPlans = [
 
 const PricingSection = () => {
   return (
-    <section id="pricing" className="py-20 bg-slate-50 dark:bg-slate-800" dir="rtl">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="pricing" className="py-20 bg-slate-50/50 dark:bg-slate-900 relative overflow-hidden" dir="rtl">
+      <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:bg-[url('/images/grid-dark.svg')]"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="gradient-text">תוכניות מחירים</span> פשוטות ושקופות
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">
+              <span className="gradient-text">מחירים</span> שקופים עם תוצאות מוכחות
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-16">
-              BuzzCraft מציעה חבילות פשוטות וגמישות ללא הפתעות או עלויות נסתרות
+              אנחנו מציעים חבילות פשוטות וגמישות עם החזר השקעה מוכח, ללא התחייבות ארוכת טווח או עלויות נסתרות
             </p>
           </motion.div>
         </div>
@@ -92,11 +93,11 @@ const PricingSection = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`relative rounded-xl overflow-hidden ${
+              transition={{ type: 'spring', delay: index * 0.1 }}
+              className={`relative rounded-xl overflow-hidden backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 border-2 border-white/20 hover:border-emerald-500/30 transition-all ${
                 plan.highlighted 
-                  ? 'shadow-xl border-2 border-emerald-500 dark:border-emerald-400' 
-                  : 'shadow-md border border-gray-200 dark:border-slate-700'
+                  ? 'shadow-xl [background:linear-gradient(theme(colors.slate.50/50),theme(colors.slate.50/50)),linear-gradient(theme(colors.emerald.500),theme(colors.green.500))] dark:[background:linear-gradient(theme(colors.slate.900/30),theme(colors.slate.900/30)),linear-gradient(theme(colors.emerald.600),theme(colors.green.600))]' 
+                  : 'shadow-md'
               }`}
             >
               {plan.highlighted && (
@@ -104,7 +105,7 @@ const PricingSection = () => {
                   הפופולרי ביותר
                 </div>
               )}
-              <div className={`p-8 ${plan.highlighted ? 'pt-10' : ''} bg-white dark:bg-slate-900`}>
+              <div className={`p-8 ${plan.highlighted ? 'pt-10' : ''} bg-white/50 dark:bg-slate-900/50`}>
                 <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{plan.name}</h3>
                 <div className="mb-4">
                   <span className="text-4xl font-bold text-slate-900 dark:text-white">₪{plan.price}</span>
@@ -115,22 +116,27 @@ const PricingSection = () => {
                 </p>
                 <Link 
                   href={plan.buttonLink}
-                  className={`block text-center py-2.5 px-4 rounded-md font-medium transition-colors ${
+                  className={`block text-center py-2.5 px-4 rounded-md font-medium transition-all ${
                     plan.highlighted 
-                      ? 'bg-emerald-500 hover:bg-emerald-600 text-white' 
-                      : 'bg-white dark:bg-slate-800 border border-emerald-500 text-emerald-500 hover:bg-emerald-50 dark:hover:bg-slate-700'
+                      ? 'bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-600 text-white shadow-lg hover:shadow-xl' 
+                      : 'bg-white/50 dark:bg-slate-800/50 border border-emerald-500/30 text-emerald-600 hover:bg-emerald-50/50 dark:hover:bg-slate-700/50 hover:border-emerald-500/50'
                   }`}
                 >
                   {plan.buttonText}
                 </Link>
               </div>
-              <div className="p-8 bg-gray-50 dark:bg-slate-800/70">
+              <div className="p-8 bg-gray-50/50 dark:bg-slate-800/50">
                 <p className="font-medium text-slate-900 dark:text-white mb-4">מה כלול:</p>
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start justify-end">
-                      <span className="text-slate-600 dark:text-slate-300 text-sm text-right">{feature}</span>
-                      <FiCheck className="w-5 h-5 text-emerald-500 ml-2 flex-shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-slate-600 dark:text-slate-300 text-sm flex-1 text-right">{feature}</span>
+                      <motion.div 
+                        whileHover={{ scale: 1.2, rotate: 10 }}
+                        className="text-emerald-500"
+                      >
+                        <FiCheck className="w-6 h-6 p-1 rounded-full bg-emerald-100/50 dark:bg-emerald-900/20" />
+                      </motion.div>
                     </li>
                   ))}
                 </ul>
@@ -159,11 +165,11 @@ const PricingSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mt-20 rounded-xl p-8 md:p-12 bg-white dark:bg-slate-900 shadow-lg border border-gray-200 dark:border-slate-700"
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          className="mt-20 rounded-xl p-8 md:p-12 bg-white/50 dark:bg-slate-900/50 shadow-lg border border-gray-200 dark:border-slate-700"
         >
           <div className="max-w-5xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">השוואה: BuzzCraft מול שיווק פייסבוק מסורתי</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">השוואת עלות-תועלת: BuzzCraft מול שיווק פייסבוק מסורתי</h3>
             <div className="overflow-x-auto">
               <table className="w-full">
                 <thead>
@@ -176,8 +182,8 @@ const PricingSection = () => {
                 <tbody>
                   <tr className="border-b border-gray-200 dark:border-slate-700">
                     <td className="py-4 px-4 text-right font-medium text-slate-900 dark:text-white">עלות חודשית</td>
-                    <td className="py-4 px-4 text-center bg-emerald-50 dark:bg-emerald-900/20">מחיר מנוי קבוע וידוע מראש</td>
-                    <td className="py-4 px-4 text-center bg-gray-50 dark:bg-gray-800/50">לא צפויה, עולה באופן מתמיד</td>
+                    <td className="py-4 px-4 text-center bg-emerald-50 dark:bg-emerald-900/20">תעריף קבוע וידוע מראש ללא הפתעות</td>
+                    <td className="py-4 px-4 text-center bg-gray-50 dark:bg-gray-800/50">משתנה ולא צפויה, עם עלייה מתמדת בעלות לקליק</td>
                   </tr>
                   <tr className="border-b border-gray-200 dark:border-slate-700">
                     <td className="py-4 px-4 text-right font-medium text-slate-900 dark:text-white">יצירת תוכן</td>

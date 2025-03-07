@@ -8,29 +8,29 @@ import Image from 'next/image';
 const steps = [
   {
     icon: <FiSettings className="w-6 h-6" />,
-    title: 'התאמת הקמפיין שלך',
-    description: "הגדר את פרופיל העסק שלך ואת קהל היעד: מהם התחומים, הצרכים והבעיות שהמוצר או השירות שלך פותר, ומהן הקבוצות הרלוונטיות בפייסבוק.",
+    title: 'הגדרת הפרופיל העסקי והקהל שלך',
+    description: "הגדר את פרופיל העסק שלך, תחומי ההתמחות, והערך הייחודי שאתה מציע. המערכת מנתחת מידע זה ומזהה את סוגי הלקוחות האידיאליים, הצרכים שהם מחפשים לפתור, והקבוצות הרלוונטיות ביותר עבורם בפייסבוק.",
     color: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/60 dark:text-emerald-300',
     image: '/images/steps/step1-criteria.svg'
   },
   {
     icon: <FiUsers className="w-6 h-6" />,
-    title: 'יצירה והפצה אוטומטית של פוסטים אותנטיים',
-    description: "המערכת שלנו מייצרת מאות וריאציות של פוסטים אותנטיים ומפיצה אותם ב-10,000+ קבוצות פייסבוק ממוקדות, בדיוק כמו אדם אמיתי היה עושה.",
+    title: 'יצירה והפצה אוטומטית של תוכן אותנטי',
+    description: "הטכנולוגיה המתקדמת שלנו מייצרת עשרות גרסאות של פוסטים בסגנון טבעי ואנושי, ומפיצה אותם באלפי קבוצות פייסבוק ממוקדות. הפוסטים מותאמים לסגנון ולאופי של כל קבוצה ומתזמנים אוטומטית לשעות האפקטיביות ביותר.",
     color: 'bg-teal-100 text-teal-600 dark:bg-teal-900/60 dark:text-teal-300',
     image: '/images/steps/step2-ai.svg'
   },
   {
     icon: <FiMessageCircle className="w-6 h-6" />,
-    title: 'איסוף וטיפוח לידים אוטומטי',
-    description: "בוט המסנג'ר החכם שלנו מנהל את השיחות הראשוניות עם מגיבים לפוסטים, אוסף את פרטי הקשר ומידע מיון ראשוני, ומזין את הלידים ישירות למערכת ה-CRM המובנית.",
+    title: 'ניהול שיחות וסינון לידים אוטומטי',
+    description: "כשאנשים מגיבים לפוסטים או פונים בהודעה ישירה, בוט המסנג'ר החכם שלנו נכנס לפעולה. הוא מנהל שיחה טבעית ואותנטית, מזהה את רמת הרצינות והעניין, אוסף את פרטי הקשר ומידע חיוני, ומדרג את הלידים לפי איכות וסיכויי המרה.",
     color: 'bg-green-100 text-green-600 dark:bg-green-900/60 dark:text-green-300',
     image: '/images/steps/step3-contact.svg'
   },
   {
     icon: <FiBarChart2 className="w-6 h-6" />,
-    title: 'המשך טיפוח ומדידת תוצאות',
-    description: "צפה בפרטי כל ליד, המשך לטפח אותו ולהוביל למכירה, עקוב אחר הביצועים באמצעות הדוחות האנליטיים, ועדכן את האסטרטגיה לפי הצורך.",
+    title: 'המשך טיפוח לקוחות וניתוח ביצועים',
+    description: "עקוב אחר כל ליד במערכת ה-CRM המובנית, נהל משימות מעקב, וקבל התראות על לידים חמים שמוכנים להמרה. המערכת מספקת ניתוח מעמיק של הביצועים כדי לשפר את האסטרטגיה ולהגדיל את יחסי ההמרה באופן מתמיד.",
     color: 'bg-amber-100 text-amber-600 dark:bg-amber-900/60 dark:text-amber-300',
     image: '/images/steps/step4-track.svg'
   }
@@ -40,21 +40,22 @@ const HowItWorksSection = () => {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
-    <section id="how-it-works" className="py-20 bg-slate-50 dark:bg-slate-800" dir="rtl">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="how-it-works" className="py-20 bg-gradient-to-b from-slate-50/50 to-white/50 dark:from-slate-900 dark:to-slate-800/70 relative overflow-hidden" dir="rtl">
+      <div className="absolute inset-0 bg-[url('/images/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] dark:bg-[url('/images/grid-dark.svg')]"></div>
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              איך <span className="gradient-text">BuzzCraft</span> עובד
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-500 bg-clip-text text-transparent">
+              איך <span className="gradient-text">BuzzCraft</span> מניעה את מנוע הלידים האורגניים
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 mb-8">
-              הפלטפורמה שלנו הופכת את תהליך מציאת וגיוס לידים אורגניים מפייסבוק לאוטומטי לחלוטין
+              המערכת שלנו הופכת את כל תהליך איתור ויצירת הלידים האורגניים לאוטומטי ויעיל, תוך שמירה על איכות ואותנטיות ברמה שלא ניתן להבדיל מפעילות אנושית
             </p>
             
             {/* Header Illustration */}
@@ -73,7 +74,7 @@ const HowItWorksSection = () => {
             <div className="mt-8">
               <button
                 onClick={() => setShowVideo(true)}
-                className="inline-flex items-center px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-colors shadow-lg hover:shadow-xl"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-emerald-600 to-green-500 hover:from-emerald-700 hover:to-green-600 text-white font-medium transition-all shadow-lg hover:shadow-xl hover:scale-[1.02]"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
@@ -92,7 +93,7 @@ const HowItWorksSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ type: 'spring', delay: index * 0.1 }}
               className="relative"
             >
               {/* Connector Line (except for last item) */}
@@ -102,7 +103,7 @@ const HowItWorksSection = () => {
               
               <div className={`grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                 {/* Content */}
-                <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'md:order-2' : ''}`}>
+                <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'md:order-2' : ''} backdrop-blur-sm bg-white/30 dark:bg-slate-900/30 p-8 rounded-2xl shadow-glass border border-white/10`}>
                   <div className="flex items-center mb-6">
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{step.title}</h3>
                     <div className={`w-20 h-20 rounded-full ${step.color} flex items-center justify-center mr-4 shadow-md z-10`}>
@@ -113,7 +114,10 @@ const HowItWorksSection = () => {
                 </div>
                 
                 {/* Image */}
-                <div className={`relative h-64 md:h-80 rounded-xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 group hover:shadow-2xl transition-shadow duration-300 ${index % 2 === 1 ? 'md:order-1' : ''}`}>
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className={`relative h-64 md:h-80 rounded-xl overflow-hidden shadow-xl border-2 border-white/20 bg-gradient-to-br from-white/30 to-white/10 dark:from-slate-900/30 dark:to-slate-800/20 backdrop-blur-sm group hover:shadow-2xl transition-all`}
+                >
                   <div className="absolute inset-0 bg-gradient-to-tr from-white/80 to-transparent z-10 dark:from-gray-900/80"></div>
                   <Image 
                     src={step.image}
@@ -127,7 +131,7 @@ const HowItWorksSection = () => {
                   <div className={`absolute bottom-4 left-4 w-16 h-16 rounded-full ${step.color} flex items-center justify-center shadow-lg z-20`}>
                     {step.icon}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           ))}
@@ -138,15 +142,15 @@ const HowItWorksSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ type: 'spring', stiffness: 100, damping: 20 }}
           className="text-center mt-20" 
         >
           <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-8 rounded-2xl shadow-lg max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold mb-3 text-slate-900 dark:text-white">
-              מוכן למצוא לידים אורגניים איכותיים?
+              מוכן להתחיל לייצר לידים איכותיים בעלות נמוכה ובמאמץ מינימלי?
             </h3>
             <p className="text-slate-600 dark:text-slate-400 mb-6 max-w-2xl mx-auto">
-              התחל לייצר לידים אורגניים מפייסבוק באופן אוטומטי ורציף עם BuzzCraft - הפלטפורמה המובילה לייצור לידים אורגניים
+              הצטרף למאות העסקים שכבר מנצלים את הכוח של BuzzCraft כדי למשוך לקוחות אמיתיים מקבוצות פייסבוק - באופן אוטומטי, אותנטי, וללא צורך בתקציבי פרסום מנופחים
             </p>
             <a 
               href="/signup" 
